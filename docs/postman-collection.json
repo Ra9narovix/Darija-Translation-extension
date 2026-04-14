@@ -1,0 +1,65 @@
+{
+  "info": {
+    "name": "Darija Translator API",
+    "_postman_id": "6f3a7706-fbda-4b25-b9d4-3b51eb062fb0",
+    "description": "Postman examples for the LLM-powered Darija translation backend.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:8080/darija-translator"
+    },
+    {
+      "key": "username",
+      "value": "demo"
+    },
+    {
+      "key": "password",
+      "value": "demo123"
+    }
+  ],
+  "item": [
+    {
+      "name": "Health Check",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/api/health"
+      }
+    },
+    {
+      "name": "Translate to Darija",
+      "request": {
+        "auth": {
+          "type": "basic",
+          "basic": [
+            {
+              "key": "username",
+              "value": "{{username}}",
+              "type": "string"
+            },
+            {
+              "key": "password",
+              "value": "{{password}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"text\": \"How are you today?\",\n  \"sourceLanguage\": \"en\",\n  \"targetLanguage\": \"darija\"\n}"
+        },
+        "url": "{{baseUrl}}/api/translate"
+      }
+    }
+  ]
+}

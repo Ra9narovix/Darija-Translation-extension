@@ -1,0 +1,119 @@
+:root {
+  --morocco-red: #c1121f;
+  --morocco-blue: #0f4c81;
+  --ink: #102033;
+  --paper: #f5f8fc;
+  --white: #ffffff;
+  --muted: #6b7a90;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Tahoma, sans-serif;
+  background:
+    radial-gradient(circle at top right, rgba(15, 76, 129, 0.18), transparent 32%),
+    linear-gradient(180deg, #fff6f7 0%, var(--paper) 100%);
+  color: var(--ink);
+}
+
+.panel {
+  padding: 18px;
+}
+
+.hero {
+  background: linear-gradient(135deg, var(--morocco-red), var(--morocco-blue));
+  color: var(--white);
+  padding: 18px;
+  border-radius: 20px;
+  box-shadow: 0 16px 36px rgba(15, 76, 129, 0.2);
+}
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-size: 12px;
+  opacity: 0.9;
+}
+
+.subtitle {
+  margin-bottom: 0;
+}
+
+.card {
+  margin-top: 16px;
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(15, 76, 129, 0.08);
+  border-radius: 18px;
+  padding: 16px;
+  box-shadow: 0 10px 28px rgba(16, 32, 51, 0.08);
+}
+
+label {
+  display: block;
+  font-weight: 600;
+  margin: 10px 0 6px;
+}
+
+input,
+textarea,
+button {
+  width: 100%;
+  border-radius: 14px;
+  border: 1px solid rgba(15, 76, 129, 0.18);
+  padding: 12px 14px;
+  font-size: 14px;
+}
+
+textarea,
+input {
+  background: #fbfdff;
+}
+
+button {
+  cursor: pointer;
+  background: linear-gradient(135deg, var(--morocco-red), #d62839);
+  color: var(--white);
+  border: none;
+  font-weight: 700;
+}
+
+.secondary-btn {
+  background: linear-gradient(135deg, var(--morocco-blue), #2b6ca3);
+}
+
+.ghost-btn {
+  background: transparent;
+  color: var(--morocco-blue);
+  border: 1px dashed rgba(15, 76, 129, 0.4);
+}
+
+.actions {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.single {
+  grid-template-columns: 1fr;
+}
+
+.status,
+.small-text {
+  min-height: 20px;
+  color: var(--muted);
+}
+
+.error {
+  color: var(--morocco-red);
+}
+
+@media (max-width: 640px) {
+  .actions {
+    grid-template-columns: 1fr;
+  }
+}

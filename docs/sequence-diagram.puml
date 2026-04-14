@@ -1,0 +1,22 @@
+@startuml
+title Translation Request Sequence
+
+actor User
+participant Client
+participant "TranslatorResource" as Resource
+participant "TranslationService" as Service
+participant "GeminiTranslationProvider" as Provider
+participant "Gemini API" as Gemini
+
+User -> Client : Enter/select text
+Client -> Resource : POST /api/translate + Basic Auth
+Resource -> Service : translate(request)
+Service -> Provider : translate(text, source, darija)
+Provider -> Gemini : POST generateContent
+Gemini --> Provider : translated Darija text
+Provider --> Service : TranslationProviderResult
+Service --> Resource : TranslationResponse
+Resource --> Client : JSON result
+Client --> User : Show Darija translation
+
+@enduml

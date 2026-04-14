@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Darija Translator</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="panel">
+    <header class="hero">
+      <p class="eyebrow">LLM-powered Translation</p>
+      <h1>Darija Side Panel</h1>
+      <p class="subtitle">Right-click selected text, then translate it into natural Moroccan Darija.</p>
+    </header>
+
+    <section class="card">
+      <label for="backendUrl">Backend URL</label>
+      <input id="backendUrl" type="text" placeholder="http://localhost:8080/darija-translator/api/translate">
+
+      <label for="username">Username</label>
+      <input id="username" type="text" placeholder="demo">
+
+      <label for="password">Password</label>
+      <input id="password" type="password" placeholder="demo123">
+
+      <button id="saveConfigBtn" class="secondary-btn">Save Connection</button>
+      <p id="configStatus" class="small-text"></p>
+    </section>
+
+    <section class="card">
+      <label for="sourceText">Selected or Entered Text</label>
+      <textarea id="sourceText" rows="6" placeholder="Select text on any page or type here..."></textarea>
+
+      <div class="actions">
+        <button id="translateBtn">Translate</button>
+        <button id="listenBtn" class="secondary-btn">Read Aloud</button>
+        <button id="copyBtn" class="secondary-btn">Copy</button>
+      </div>
+
+      <div class="actions single">
+        <button id="speechBtn" class="ghost-btn">Voice Input</button>
+      </div>
+
+      <p id="statusMessage" class="status"></p>
+
+      <label for="translatedText">Darija Translation</label>
+      <textarea id="translatedText" rows="6" readonly placeholder="Darija translation will appear here..."></textarea>
+    </section>
+  </div>
+
+  <script src="sidepanel.js"></script>
+</body>
+</html>

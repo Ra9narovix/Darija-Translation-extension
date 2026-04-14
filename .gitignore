@@ -1,0 +1,6 @@
+backend/target/
+react-native-client/node_modules/
+python-client/.venv/
+.idea/
+.vscode/
+*.log

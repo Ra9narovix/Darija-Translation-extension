@@ -1,0 +1,35 @@
+@startuml
+title Deployment Diagram - Darija Translator Mini Project
+
+node "User Devices" {
+  node "Chrome Browser" {
+    artifact "Chrome Extension\n(Manifest V3 + Side Panel)"
+  }
+  node "PHP Client Browser" {
+    artifact "PHP Web App"
+  }
+  node "Python Terminal" {
+    artifact "Python CLI"
+  }
+  node "Mobile Device / Emulator" {
+    artifact "React Native App"
+  }
+}
+
+node "Application Host" {
+  node "Payara Micro / Jakarta EE Runtime" {
+    artifact "Darija Translator Backend WAR"
+  }
+}
+
+cloud "Google Gemini Developer API\nFree Tier" {
+  artifact "gemini-2.5-flash-lite"
+}
+
+"Chrome Extension\n(Manifest V3 + Side Panel)" --> "Darija Translator Backend WAR" : HTTPS + Basic Auth
+"PHP Web App" --> "Darija Translator Backend WAR" : HTTP/JSON + Basic Auth
+"Python CLI" --> "Darija Translator Backend WAR" : HTTP/JSON + Basic Auth
+"React Native App" --> "Darija Translator Backend WAR" : HTTP/JSON + Basic Auth
+"Darija Translator Backend WAR" --> "gemini-2.5-flash-lite" : REST generateContent + API Key
+
+@enduml

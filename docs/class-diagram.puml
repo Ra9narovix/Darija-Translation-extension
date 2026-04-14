@@ -1,0 +1,46 @@
+@startuml
+title LLM-powered RESTful Web Service for Translation to Moroccan Darija - Class Diagram
+
+class TranslatorResource {
+  +translate(request: TranslationRequest): Response
+}
+
+class HealthResource {
+  +health(): Response
+}
+
+class TranslationService {
+  +translate(request: TranslationRequest): TranslationResponse
+}
+
+interface TranslationProvider {
+  +translate(text: String, sourceLanguage: String, targetLanguage: String): TranslationProviderResult
+  +getProviderName(): String
+}
+
+class GeminiTranslationProvider {
+  -buildEndpoint(): String
+  -buildPrompt(text, sourceLanguage, targetLanguage): String
+  -extractTranslatedText(responseBody): String
+}
+
+class DemoIdentityStore
+class ConfigService
+class TranslationRequest
+class TranslationResponse
+class ErrorResponse
+class AppException
+class GlobalExceptionMapper
+
+TranslatorResource --> TranslationService
+HealthResource --> ConfigService
+TranslationService --> TranslationProvider
+GeminiTranslationProvider ..|> TranslationProvider
+GeminiTranslationProvider --> ConfigService
+DemoIdentityStore --> ConfigService
+GlobalExceptionMapper --> ErrorResponse
+TranslationService --> TranslationRequest
+TranslationService --> TranslationResponse
+TranslationService --> AppException
+
+@enduml
